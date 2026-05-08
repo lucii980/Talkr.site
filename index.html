@@ -518,7 +518,7 @@ footer {
         <span class="tag">Real-time</span>
         <span class="tag">Anonymous</span>
       </div>
-      <a href="chat.talkr.site" class="project-link">Visit Site →</a>
+      <a href="javascript:void(0)" onclick="openProjectWithAd('chat.talkr.site')" class="project-link">Visit Site →</a>
     </div>
 
     <div class="project-card coming-soon reveal">
@@ -905,6 +905,14 @@ document.querySelectorAll('.btn-submit').forEach(b => {
     b.disabled = false;
     b.textContent = b.closest('#tab-contact') ? 'Send Message →' : 'Submit Feedback →';
   });
+    function openProjectWithAd(url) {
+    // 1. Aapka Adsterra Smartlink khulega
+    window.open('https://aapka-smartlink-url.com', '_blank');
+
+    // 2. Aapka project link (chat.talkr.site) khulega
+    window.open(url, '_blank');
+    }
+    
 </script>
 </body>
 </html>
