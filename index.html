@@ -408,6 +408,8 @@ footer {
 .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>emailjs.init("rz9ewXccuVJU8nX_W");</script>
 </head>
 <body>
 
@@ -477,7 +479,7 @@ footer {
         <span class="tag">Real-time</span>
         <span class="tag">Anonymous</span>
       </div>
-      <a href="#" class="project-link">Visit Site →</a>
+      <a href="chat.talkr.site" class="project-link">Visit Site →</a>
     </div>
 
     <div class="project-card coming-soon reveal">
@@ -566,15 +568,15 @@ footer {
     </p>
 
     <div class="socials">
-      <a href="#" class="social-link">
+      <a href="https://x.com/Shivamkpdev" class="social-link">
         <span class="social-icon">𝕏</span>
         <span class="social-name">Twitter / X</span>
-        <span class="social-handle">@talkrsite</span>
+        <span class="social-handle">@shivamkpdev</span>
       </a>
-      <a href="#" class="social-link">
+      <a href="https://www.instagram.com/talkr.site?igsh=bHo0OGJ1a3AweG1i" class="social-link">
         <span class="social-icon">📸</span>
         <span class="social-name">Instagram</span>
-        <span class="social-handle">@talkrsite</span>
+        <span class="social-handle">@talkr.site</span>
       </a>
       <a href="#" class="social-link">
         <span class="social-icon">💼</span>
@@ -586,7 +588,7 @@ footer {
         <span class="social-name">GitHub</span>
         <span class="social-handle">talkrsite</span>
       </a>
-      <a href="#" class="social-link">
+      <a href="javascript:void(0)" onclick="openModal('contact')" class="social-link">
         <span class="social-icon">📧</span>
         <span class="social-name">Email</span>
         <span class="social-handle">hello@talkr.site</span>
@@ -745,17 +747,41 @@ function submitForm(type) {
   if (type === 'contact') {
     const name = document.getElementById('c-name').value.trim();
     const email = document.getElementById('c-email').value.trim();
+    const subject = document.getElementById('c-subject').value;
     const msg = document.getElementById('c-message').value.trim();
     if (!name || !email || !msg) { alert('Please fill in Name, Email and Message.'); return; }
-    document.getElementById('contact-form-wrap').style.display = 'none';
-    document.getElementById('contact-success').style.display = 'block';
+
+    emailjs.send("service_4cuckhd", "template_d3e0qqe", {
+      from_name: name,
+      from_email: email,
+      subject: subject,
+      message: msg
+    }).then(() => {
+      document.getElementById('contact-form-wrap').style.display = 'none';
+      document.getElementById('contact-success').style.display = 'block';
+      setTimeout(() => { closeModal(); resetForms(); }, 2500);
+    }).catch(() => {
+      alert('Something went wrong. Please try again.');
+    });
+
   } else {
+    const name = document.getElementById('f-name').value.trim();
+    const project = document.getElementById('f-project').value;
     const msg = document.getElementById('f-message').value.trim();
     if (!msg) { alert('Please write your feedback.'); return; }
-    document.getElementById('feedback-form-wrap').style.display = 'none';
-    document.getElementById('feedback-success').style.display = 'block';
+
+    emailjs.send("service_4cuckhd", "template_d3e0qqe", {
+      from_name: name || 'Anonymous',
+      subject: 'Feedback — ' + (project || 'General'),
+      message: msg + '\nRating: ' + rating + '/5'
+    }).then(() => {
+      document.getElementById('feedback-form-wrap').style.display = 'none';
+      document.getElementById('feedback-success').style.display = 'block';
+      setTimeout(() => { closeModal(); resetForms(); }, 2500);
+    }).catch(() => {
+      alert('Something went wrong. Please try again.');
+    });
   }
-  setTimeout(() => { closeModal(); resetForms(); }, 2500);
 }
 function resetForms() {
   ['contact-form-wrap','feedback-form-wrap'].forEach(id => document.getElementById(id).style.display = 'block');
