@@ -744,16 +744,16 @@ function setRating(n) {
 
 // Submit
 function submitForm(type) {
-  const btn = event.target;
-  if (btn.disabled) return;
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
   if (type === 'contact') {
     const name = document.getElementById('c-name').value.trim();
     const email = document.getElementById('c-email').value.trim();
     const subject = document.getElementById('c-subject').value;
     const msg = document.getElementById('c-message').value.trim();
     if (!name || !email || !msg) { alert('Please fill in Name, Email and Message.'); return; }
+
+    const btn = document.querySelector('#tab-contact .btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
 
     emailjs.send("service_4cuckhd", "template_d3e0qqe", {
       from_name: name,
@@ -765,28 +765,37 @@ function submitForm(type) {
       document.getElementById('contact-success').style.display = 'block';
       setTimeout(() => { closeModal(); resetForms(); }, 2500);
     }).catch(() => {
+      btn.disabled = false;
+      btn.textContent = 'Send Message →';
       alert('Something went wrong. Please try again.');
     });
 
   } else {
     const name = document.getElementById('f-name').value.trim();
-    const project = document.getElementById('f-project').value;
+    const project = document.getElementById('f-project').value || 'General';
     const msg = document.getElementById('f-message').value.trim();
     if (!msg) { alert('Please write your feedback.'); return; }
 
+    const btn = document.querySelector('#tab-feedback .btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
     emailjs.send("service_4cuckhd", "template_d3e0qqe", {
       from_name: name || 'Anonymous',
-      subject: 'Feedback — ' + (project || 'General'),
-      message: msg + '\nRating: ' + rating + '/5'
+      from_email: 'feedback@talkr.site',
+      subject: 'Feedback — ' + project,
+      message: msg + '\n\nRating: ' + rating + '/5'
     }).then(() => {
       document.getElementById('feedback-form-wrap').style.display = 'none';
       document.getElementById('feedback-success').style.display = 'block';
       setTimeout(() => { closeModal(); resetForms(); }, 2500);
     }).catch(() => {
+      btn.disabled = false;
+      btn.textContent = 'Submit Feedback →';
       alert('Something went wrong. Please try again.');
     });
   }
-}
+      }
 function resetForms() {
   ['contact-form-wrap','feedback-form-wrap'].forEach(id => document.getElementById(id).style.display = 'block');
   ['contact-success','feedback-success'].forEach(id => document.getElementById(id).style.display = 'none');
