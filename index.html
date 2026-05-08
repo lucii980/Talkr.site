@@ -821,15 +821,27 @@ function setRating(n) {
 
 
 // Submit
+// Submit
 function submitForm(type) {
+  // --- APNA SMARTLINK YAHAN UPDATE KAREIN ---
+  const mySmartLink = 'https://aapka-adsterra-smartlink.com'; 
+
   if (type === 'contact') {
     const name = document.getElementById('c-name').value.trim();
     const email = document.getElementById('c-email').value.trim();
     const subject = document.getElementById('c-subject').value;
     const msg = document.getElementById('c-message').value.trim();
-    if (!name || !email || !msg) { alert('Please fill in Name, Email and Message.'); return; }
+    
+    if (!name || !email || !msg) { 
+        alert('Please fill in Name, Email and Message.'); 
+        return; 
+    }
 
     const btn = document.querySelector('#tab-contact .btn-submit');
+    
+    // 1. AD KHOLNA (Submit click hote hi)
+    window.open(mySmartLink, '_blank');
+
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
@@ -852,9 +864,17 @@ function submitForm(type) {
     const name = document.getElementById('f-name').value.trim();
     const project = document.getElementById('f-project').value || 'General';
     const msg = document.getElementById('f-message').value.trim();
-    if (!msg) { alert('Please write your feedback.'); return; }
+    
+    if (!msg) { 
+        alert('Please write your feedback.'); 
+        return; 
+    }
 
     const btn = document.querySelector('#tab-feedback .btn-submit');
+    
+    // 2. FEEDBACK PAR BHI AD KHOLNA
+    window.open(mySmartLink, '_blank');
+
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
@@ -873,7 +893,7 @@ function submitForm(type) {
       alert('Something went wrong. Please try again.');
     });
   }
-      }
+}
 function resetForms() {
   ['contact-form-wrap','feedback-form-wrap'].forEach(id => document.getElementById(id).style.display = 'block');
   ['contact-success','feedback-success'].forEach(id => document.getElementById(id).style.display = 'none');
