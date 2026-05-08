@@ -905,13 +905,18 @@ document.querySelectorAll('.btn-submit').forEach(b => {
     b.disabled = false;
     b.textContent = b.closest('#tab-contact') ? 'Send Message →' : 'Submit Feedback →';
   });
-    function openProjectWithAd(url) {
-    // 1. Aapka Adsterra Smartlink khulega
-    window.open('https://aapka-smartlink-url.com', '_blank');
-
-    // 2. Aapka project link (chat.talkr.site) khulega
-    window.open(url, '_blank');
+function openProjectWithAd(url) {
+    // 1. Smartlink ko naye tab mein kholne ki koshish
+    try {
+        window.open('YOUR_SMARTLINK_URL', '_blank');
+    } catch (e) {
+        // Agar adblocker ne roka toh console mein error aayega par project nahi rukega
     }
+
+    // 2. Project ko isi tab mein khol dein (taaki user bhatke nahi)
+    window.location.href = url;
+}
+    
     
 </script>
 </body>
