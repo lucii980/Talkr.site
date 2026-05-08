@@ -744,6 +744,10 @@ function setRating(n) {
 
 // Submit
 function submitForm(type) {
+  const btn = event.target;
+  if (btn.disabled) return;
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
   if (type === 'contact') {
     const name = document.getElementById('c-name').value.trim();
     const email = document.getElementById('c-email').value.trim();
@@ -790,6 +794,10 @@ function resetForms() {
   rating = 0;
   document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('active'));
 }
+document.querySelectorAll('.btn-submit').forEach(b => {
+    b.disabled = false;
+    b.textContent = b.closest('#tab-contact') ? 'Send Message →' : 'Submit Feedback →';
+  });
 </script>
 </body>
 </html>
