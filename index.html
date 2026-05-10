@@ -906,16 +906,14 @@ document.querySelectorAll('.btn-submit').forEach(b => {
     b.textContent = b.closest('#tab-contact') ? 'Send Message →' : 'Submit Feedback →';
   });
 function openProjectWithAd(url) {
-    // 1. Smartlink ko naye tab mein kholne ki koshish
-    try {
-        window.open('YOUR_SMARTLINK_URL', '_blank');
-    } catch (e) {
-        // Agar adblocker ne roka toh console mein error aayega par project nahi rukega
-    }
+    // 1. Pehle Smartlink (Ad) ko naye tab mein kholo
+    window.open('YOUR_SMARTLINK_URL', '_blank');
 
-    // 2. Project ko isi tab mein khol dein (taaki user bhatke nahi)
-    window.location.href = url;
+    // 2. Phir Project URL ko bhi naye tab mein kholo
+    // '_blank' ka matlab hi hota hai "New Tab"
+    window.open(url, '_blank');
 }
+
     
     
 </script>
