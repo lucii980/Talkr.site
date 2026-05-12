@@ -509,7 +509,7 @@ footer {
     <div class="project-card reveal">
       <div class="project-top">
         <div class="project-icon">💬</div>
-        <span class="project-status status-live">● Coming soon...</span>
+        <span class="project-status status-live">● Live</span>
       </div>
       <div class="project-name">AnonChat</div>
       <div class="project-desc">Anonymous real-time chat — talk to anyone, anywhere, without revealing your identity.</div>
@@ -905,14 +905,14 @@ document.querySelectorAll('.btn-submit').forEach(b => {
     b.disabled = false;
     b.textContent = b.closest('#tab-contact') ? 'Send Message →' : 'Submit Feedback →';
   });
-//function openProjectWithAd(url) {
+function openProjectWithAd(url) {
     // 1. Pehle Smartlink (Ad) ko naye tab mein kholo
-    //window.open('YOUR_SMARTLINK_URL', '_blank');
+    window.open('YOUR_SMARTLINK_URL', '_blank');
 
     // 2. Phir Project URL ko bhi naye tab mein kholo
     // '_blank' ka matlab hi hota hai "New Tab"
-    //window.open(url, '_blank');
-//}
+    window.open(url, '_blank');
+}
 
     
     
