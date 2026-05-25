@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- SEO Meta Tags -->
 <meta name="description" content="talkr.site — where bold ideas become real products. Explore live projects like AnonChat and more.">
-<meta name="keywords" content="talkr, anonchat, anonymous chat, web projects, indie developer, ai platform, project builder, ai collaboration, developer tools, startup tools, build ship repeat, creator platform, ai workspace, launch projects, modern SaaS, ai productivity">
-
-<!-- Open Graph — Google & Social Media preview -->
+<meta name="keywords" content="talkr, anonchat, anonymous chat, web projects, indie developer, project builder, developer tools, build ship repeat">
 <meta property="og:title" content="Talkr — Where Ideas Launch">
 <meta property="og:description" content="Bold ideas become real products — one launch at a time.">
 <meta property="og:url" content="https://talkr.site">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://talkr.site/og-image.png">
-
-<!-- Favicon — browser tab icon -->
 <link rel="icon" type="image/png" href="/favicon.png">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Talkr — Where Ideas Launch</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talkr — Where Ideas Launch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>emailjs.init("rz9ewXccuVJU8nX_W");</script>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +39,7 @@
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-weight: 300; overflow-x: hidden; }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -68,7 +65,7 @@ nav.scrolled {
 }
 .nav-cta:hover { background: var(--accent-h); transform: translateY(-1px); }
 
-/* ── HERO ── */
+/* HERO */
 #hero {
   min-height: 100svh;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -168,32 +165,26 @@ h1 em::after {
   border: 1px solid var(--border); border-radius: 12px;
   overflow: hidden; background: rgba(167,139,250,0.04);
 }
-.stat {
-  text-align: center; padding: 1rem 1.8rem;
-  border-right: 1px solid var(--border);
-}
+.stat { text-align: center; padding: 1rem 1.8rem; border-right: 1px solid var(--border); }
 .stat:last-child { border-right: none; }
 .stat-num {
   font-family: var(--font-display); font-size: 1.8rem; font-weight: 800;
   color: var(--accent); letter-spacing: -0.04em; line-height: 1;
 }
-.stat-label {
-  font-size: 0.65rem; color: var(--muted);
-  letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem;
-}
+.stat-label { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
 
 @keyframes fadeUp {
   from { opacity:0; transform:translateY(20px); }
   to   { opacity:1; transform:translateY(0); }
 }
 
-/* ── DIVIDER ── */
+/* DIVIDER */
 .section-divider {
   height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent);
   margin: 0 1.5rem;
 }
 
-/* ── SECTIONS ── */
+/* SECTIONS */
 .section-wrap { max-width: 960px; margin: 0 auto; padding: 3.5rem 1.5rem; position: relative; z-index: 2; }
 
 .section-tag {
@@ -208,18 +199,13 @@ h1 em::after {
 }
 .section-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
 
-/* ── PROJECTS ── */
+/* PROJECTS */
 .projects-header { margin-bottom: 1.8rem; }
-.projects-grid {
-  display: grid; grid-template-columns: 1fr; gap: 1rem;
-}
-@media (min-width: 600px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-}
+.projects-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 600px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .project-card {
-  background: var(--card-solid);
-  border: 1px solid var(--border);
+  background: var(--card-solid); border: 1px solid var(--border);
   padding: 1.4rem; position: relative; overflow: hidden; border-radius: 14px;
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
@@ -230,8 +216,6 @@ h1 em::after {
 }
 .project-card:hover { border-color: rgba(167,139,250,0.35); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(167,139,250,0.08); }
 .project-card:hover::before { opacity: 1; }
-
-/* coming soon cards — visible but dimmer */
 .project-card.coming-soon { opacity: 0.72; }
 .project-card.coming-soon:hover { opacity: 0.9; transform: translateY(-2px); }
 
@@ -247,11 +231,7 @@ h1 em::after {
 }
 .status-live { color:#4ade80; border-color:rgba(74,222,128,0.3); background:rgba(74,222,128,0.07); }
 .status-soon { color:var(--muted); border-color:rgba(167,139,250,0.15); background: rgba(167,139,250,0.04); }
-
-.project-name {
-  font-family:var(--font-display); font-size:1.1rem; font-weight:700;
-  letter-spacing:-0.02em; margin-bottom:0.4rem; color: var(--text);
-}
+.project-name { font-family:var(--font-display); font-size:1.1rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:0.4rem; color: var(--text); }
 .project-desc { color:var(--muted); font-size:0.82rem; line-height:1.6; margin-bottom:1.1rem; }
 .project-tags { display:flex; flex-wrap:wrap; gap:0.3rem; margin-bottom:1.1rem; }
 .tag {
@@ -266,7 +246,7 @@ h1 em::after {
 }
 .project-link:hover { gap:0.6rem; color:var(--accent-h); }
 
-/* ── FEEDBACK STRIP ── */
+/* FEEDBACK STRIP */
 .feedback-wrap { max-width: 960px; margin: 0 auto; padding: 0 1.5rem 2.5rem; position: relative; z-index: 2; }
 .feedback-strip {
   background: linear-gradient(135deg, rgba(167,139,250,0.1) 0%, rgba(244,114,182,0.06) 100%);
@@ -286,24 +266,19 @@ h1 em::after {
 }
 .btn-feedback:hover { background: var(--accent-h); transform: translateY(-1px); }
 
-/* ── ABOUT ── */
+/* ABOUT */
 .about-card {
   background: var(--card-solid); border: 1px solid var(--border); border-radius: 16px;
   padding: 2rem;
 }
-.about-top {
-  display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.2rem;
-}
+.about-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.2rem; }
 .about-avatar-sm {
   width: 64px; height: 64px; min-width: 64px;
   background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.25);
   border-radius: 16px; display: flex; align-items: center; justify-content: center;
   font-size: 2rem;
 }
-.about-name {
-  font-family: var(--font-display); font-size: 1.2rem; font-weight: 800;
-  letter-spacing: -0.02em; margin-bottom: 0.2rem;
-}
+.about-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.2rem; }
 .about-role { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; }
 .about-bio { color: var(--muted); line-height: 1.75; font-size: 0.9rem; margin-bottom: 1.5rem; }
 
@@ -322,7 +297,7 @@ h1 em::after {
 .social-name { flex: 1; font-size: 0.82rem; }
 .social-handle { color: var(--muted); font-size: 0.72rem; }
 
-/* ── MODAL ── */
+/* MODAL */
 .modal-overlay {
   position:fixed; inset:0; z-index:500;
   background:rgba(0,0,0,0.85); backdrop-filter:blur(16px);
@@ -388,7 +363,7 @@ select option { background:#1a1628; }
 .success-msg h3 { font-family:var(--font-display); font-size:1.3rem; margin-bottom:0.4rem; }
 .success-msg p { color:var(--muted); font-size:0.85rem; }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
   border-top:1px solid var(--border); padding:1.8rem 1.5rem;
   display:flex; justify-content:space-between; align-items:center;
@@ -401,71 +376,31 @@ footer {
 .footer-btn { color:var(--muted); font-size:0.78rem; background:none; border:none; font-family:var(--font-body); transition:color 0.2s; cursor:pointer; }
 .footer-btn:hover { color:var(--accent); }
 
-/* ── AD SLOTS ──
-   Google AdSense kaise add karein:
-   1. google.com/adsense pe signup karo
-   2. Publisher ID lo: ca-pub-XXXXXXXX
-   3. Neeche .ad-slot divs ke andar
-      apna <ins class="adsbygoogle"> code paste karo
-*/
-.ad-slot {
-  display:flex; align-items:center; justify-content:center;
-  border:1px dashed rgba(167,139,250,0.08);
-  color:var(--muted); font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase;
-  border-radius:8px; overflow:hidden; position:relative; z-index:2;
-  margin: 0 1.5rem;
-}
-.ad-slot-banner { height:70px; margin-bottom:0; }
-.ad-slot-footer  { height:70px; margin-bottom:1.5rem; }
-
-/* ── REVEAL ── */
+/* REVEAL */
 .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
 </style>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>emailjs.init("rz9ewXccuVJU8nX_W");</script>
-<!-- popunder -->
-<script src="https://pl29378444.profitablecpmratenetwork.com/17/6a/e0/176ae01af0c1733e08fe8ee8ece466e5.js"></script>
-    
 </head>
 <body>
-    <!-- social bar-->
-<script src="https://pl29378446.profitablecpmratenetwork.com/3e/bc/31/3ebc31fe8df1e67a4a1d2c83814743a3.js"></script>
-    
+
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">talkr<span>.site</span></a>
-  <button class="nav-cta" onclick="openModal('contact')">Contact Us</button>
+  <button class="nav-cta" onclick="openModal('contact')">Contact</button>
 </nav>
 
 <!-- HERO -->
 <div id="hero">
-   <!-- first ads -->
-<div class="ad-slot ad-slot-banner">
-  <!-- AdSense code yahan -->
-<script>
-  atOptions = {
-    'key' : '4d5917fde379e70bbc7f2db6fefecebf',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/4d5917fde379e70bbc7f2db6fefecebf/invoke.js"></script>
-
-</div>
-    <!-- hero section start -->
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
 
-  <div class="hero-badge">Live &amp; Building</div>
+  <div class="hero-badge">Personal Portfolio · Building in Public</div>
 
   <h1>Build.<br>Ship. <em>Repeat.</em></h1>
 
   <p class="hero-sub">
-    talkr.site is where bold ideas become real products — one launch at a time.
-    Explore live projects and connect directly.
+    My personal space where ideas turn into real products.
+    Indie developer — designing, coding, and shipping everything solo.
   </p>
 
   <div class="hero-actions">
@@ -476,32 +411,27 @@ footer {
   <div class="hero-stats">
     <div class="stat">
       <div class="stat-num">1+</div>
-      <div class="stat-label">Live</div>
+      <div class="stat-label">Live Projects</div>
     </div>
     <div class="stat">
-      <div class="stat-num">∞</div>
-      <div class="stat-label">Ideas</div>
+      <div class="stat-num">Solo</div>
+      <div class="stat-label">Builder</div>
     </div>
     <div class="stat">
-      <div class="stat-num">24/7</div>
-      <div class="stat-label">Building</div>
+      <div class="stat-num">2025</div>
+      <div class="stat-label">Started</div>
     </div>
   </div>
 </div>
 
 <div class="section-divider"></div>
 
-<!-- native banner ads -->
-    <script async="async" data-cfasync="false" src="https://pl29378445.profitablecpmratenetwork.com/196c89aa278bc062dc06fb4ddda99d7c/invoke.js"></script>
-<div id="container-196c89aa278bc062dc06fb4ddda99d7c"></div>
-    
-    
 <!-- PROJECTS -->
 <div class="section-wrap" id="projects">
   <div class="projects-header reveal">
-    <div class="section-tag">Portfolio</div>
+    <div class="section-tag">My Work</div>
     <h2 class="section-title">Projects</h2>
-    <p class="section-desc">Built from scratch — real tools, real users, real impact.</p>
+    <p class="section-desc">Built from scratch — real tools, shipped solo.</p>
   </div>
 
   <div class="projects-grid">
@@ -518,7 +448,7 @@ footer {
         <span class="tag">Real-time</span>
         <span class="tag">Anonymous</span>
       </div>
-      <a href="https://chat.talkr.site/" class="project-link">Visit Site →</a>
+      <a href="https://chat.talkr.site/" target="_blank" class="project-link">Visit Site →</a>
     </div>
 
     <div class="project-card coming-soon reveal">
@@ -527,63 +457,17 @@ footer {
         <span class="project-status status-soon">Coming Soon</span>
       </div>
       <div class="project-name">Project #2</div>
-      <div class="project-desc">Something big is in development. Stay tuned — it'll change how you interact online.</div>
+      <div class="project-desc">Something new is in development. Stay tuned.</div>
       <div class="project-tags">
         <span class="tag">In Progress</span>
-        <span class="tag">2025</span>
       </div>
       <span class="project-link" style="opacity:0.4;cursor:default">In Development</span>
-    </div>
-
-    <div class="project-card coming-soon reveal">
-      <div class="project-top">
-        <div class="project-icon">⚡</div>
-        <span class="project-status status-soon">Coming Soon</span>
-      </div>
-      <div class="project-name">Project #3</div>
-      <div class="project-desc">Another tool crafted with care. Fast, minimal, built for the modern web.</div>
-      <div class="project-tags">
-        <span class="tag">In Progress</span>
-        <span class="tag">2025</span>
-      </div>
-      <span class="project-link" style="opacity:0.4;cursor:default">In Development</span>
-    </div>
-
-    <div class="project-card coming-soon reveal">
-      <div class="project-top">
-        <div class="project-icon">🌐</div>
-        <span class="project-status status-soon">Planned</span>
-      </div>
-      <div class="project-name">Project #4</div>
-      <div class="project-desc">More on the horizon. This is just the beginning of the talkr ecosystem.</div>
-      <div class="project-tags">
-        <span class="tag">Planned</span>
-        <span class="tag">talkr</span>
-      </div>
-      <span class="project-link" style="opacity:0.4;cursor:default">Planned</span>
     </div>
 
   </div>
 </div>
 
-<!-- AD SLOT 1 — Projects ke neeche
-     Yahan apna AdSense <ins> code paste karo -->
-<div class="ad-slot ad-slot-banner">
-  <!-- AdSense code yahan -->
-    <script>
-  atOptions = {
-    'key' : '4d5917fde379e70bbc7f2db6fefecebf',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/4d5917fde379e70bbc7f2db6fefecebf/invoke.js"></script>
-
-</div>
-
-<div class="section-divider" style="margin:1.5rem 1.5rem;"></div>
+<div class="section-divider" style="margin:0 1.5rem;"></div>
 
 <!-- FEEDBACK STRIP -->
 <div class="feedback-wrap reveal">
@@ -596,23 +480,7 @@ footer {
   </div>
 </div>
 
-<div class="section-divider" style="margin:0 1.5rem 0;"></div>
-
-<!-- native banner ads -->
-    <div class="ad-slot ad-slot-banner">
-  <!-- AdSense code yahan -->
-<script>
-  atOptions = {
-    'key' : '4d5917fde379e70bbc7f2db6fefecebf',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/4d5917fde379e70bbc7f2db6fefecebf/invoke.js"></script>
-
-    </div>
+<div class="section-divider" style="margin:0 1.5rem;"></div>
 
 <!-- ABOUT -->
 <div class="section-wrap" id="about">
@@ -623,67 +491,45 @@ footer {
     <div class="about-top">
       <div class="about-avatar-sm">👨‍💻</div>
       <div>
-        <div class="about-name">talkr.site</div>
-        <div class="about-role">Indie Builder · Full-stack</div>
+        <div class="about-name">Shivam</div>
+        <div class="about-role">Indie Developer · Full-stack</div>
       </div>
     </div>
     <p class="about-bio">
       I'm the developer behind talkr.site — passionate about building tools people actually use.
-      From anonymous chats to future platforms, I design, code, and ship everything myself.
-      Follow the journey and watch this space grow.
+      I design, code, and ship everything myself. Currently working on AnonChat and more projects to come.
+      Follow the journey — this is just the beginning.
     </p>
 
     <div class="socials">
-      <a href="https://www.linkedin.com/in/shivamkpdev?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-link">
-        <span class="social-icon">𝕏</span>
-        <span class="social-name">Twitter / X</span>
-        <span class="social-handle">@shivamkpdev</span>
-      </a>
-      <a href="https://www.instagram.com/talkr.site?igsh=bHo0OGJ1a3AweG1i" class="social-link">
+      <a href="https://www.instagram.com/talkr.site?igsh=bHo0OGJ1a3AweG1i" target="_blank" class="social-link">
         <span class="social-icon">📸</span>
         <span class="social-name">Instagram</span>
-        <span class="social-handle">@talkrsite</span>
+        <span class="social-handle">@talkr.site</span>
       </a>
-      <a href="#" class="social-link">
-        <span class="social-icon">💼</span>
-        <span class="social-name">LinkedIn</span>
-        <span class="social-handle">talkr</span>
-      </a>
-      <a href="#" class="social-link">
+      <a href="https://github.com/lucii980" target="_blank" class="social-link">
         <span class="social-icon">🐙</span>
         <span class="social-name">GitHub</span>
-        <span class="social-handle">talkrsite</span>
+        <span class="social-handle">@lucii980</span>
       </a>
       <a href="javascript:void(0)" onclick="openModal('contact')" class="social-link">
         <span class="social-icon">📧</span>
         <span class="social-name">Email</span>
         <span class="social-handle">hello@talkr.site</span>
       </a>
+      <a href="https://www.linkedin.com/in/shivamkpdev" target="_blank" class="social-link">
+        <span class="social-icon">💼</span>
+        <span class="social-name">LinkedIn</span>
+        <span class="social-handle">shivamkpdev</span>
+      </a>
     </div>
   </div>
-</div>
-
-<!-- AD SLOT 2 — Footer ke upar
-     Yahan apna AdSense <ins> code paste karo -->
-<div class="ad-slot ad-slot-footer">
-  <!-- AdSense code yahan -->
- <script>
-  atOptions = {
-    'key' : '4d5917fde379e70bbc7f2db6fefecebf',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/4d5917fde379e70bbc7f2db6fefecebf/invoke.js"></script>
-    
 </div>
 
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">talkr<span>.</span>site</a>
-  <span class="footer-copy">© 2025 talkr.site</span>
+  <span class="footer-copy">© 2025 talkr.site · Made with ❤️ solo</span>
   <div class="footer-links">
     <button onclick="openModal('contact')" class="footer-btn">Contact</button>
     <button onclick="openModal('feedback')" class="footer-btn">Feedback</button>
@@ -707,11 +553,11 @@ footer {
       <div id="contact-form-wrap">
         <div class="form-group">
           <label>Name</label>
-          <input type="text" placeholder="Rahul Sharma" id="c-name">
+          <input type="text" placeholder="Your name" id="c-name">
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" placeholder="rahul@example.com" id="c-email">
+          <input type="email" placeholder="your@email.com" id="c-email">
         </div>
         <div class="form-group">
           <label>Subject</label>
@@ -819,37 +665,19 @@ function setRating(n) {
   document.querySelectorAll('.star-btn').forEach((b, i) => b.classList.toggle('active', i < n));
 }
 
-
-// Submit
 // Submit
 function submitForm(type) {
-  // --- APNA SMARTLINK YAHAN UPDATE KAREIN ---
-  const mySmartLink = 'https://aapka-adsterra-smartlink.com'; 
-
   if (type === 'contact') {
     const name = document.getElementById('c-name').value.trim();
     const email = document.getElementById('c-email').value.trim();
     const subject = document.getElementById('c-subject').value;
     const msg = document.getElementById('c-message').value.trim();
-    
-    if (!name || !email || !msg) { 
-        alert('Please fill in Name, Email and Message.'); 
-        return; 
-    }
-
+    if (!name || !email || !msg) { alert('Please fill in Name, Email and Message.'); return; }
     const btn = document.querySelector('#tab-contact .btn-submit');
-    
-    // 1. AD KHOLNA (Submit click hote hi)
-    window.open(mySmartLink, '_blank');
-
     btn.disabled = true;
     btn.textContent = 'Sending...';
-
     emailjs.send("service_4cuckhd", "template_d3e0qqe", {
-      from_name: name,
-      from_email: email,
-      subject: subject,
-      message: msg
+      from_name: name, from_email: email, subject: subject, message: msg
     }).then(() => {
       document.getElementById('contact-form-wrap').style.display = 'none';
       document.getElementById('contact-success').style.display = 'block';
@@ -859,25 +687,14 @@ function submitForm(type) {
       btn.textContent = 'Send Message →';
       alert('Something went wrong. Please try again.');
     });
-
   } else {
     const name = document.getElementById('f-name').value.trim();
     const project = document.getElementById('f-project').value || 'General';
     const msg = document.getElementById('f-message').value.trim();
-    
-    if (!msg) { 
-        alert('Please write your feedback.'); 
-        return; 
-    }
-
+    if (!msg) { alert('Please write your feedback.'); return; }
     const btn = document.querySelector('#tab-feedback .btn-submit');
-    
-    // 2. FEEDBACK PAR BHI AD KHOLNA
-    window.open(mySmartLink, '_blank');
-
     btn.disabled = true;
     btn.textContent = 'Sending...';
-
     emailjs.send("service_4cuckhd", "template_d3e0qqe", {
       from_name: name || 'Anonymous',
       from_email: 'feedback@talkr.site',
@@ -894,6 +711,7 @@ function submitForm(type) {
     });
   }
 }
+
 function resetForms() {
   ['contact-form-wrap','feedback-form-wrap'].forEach(id => document.getElementById(id).style.display = 'block');
   ['contact-success','feedback-success'].forEach(id => document.getElementById(id).style.display = 'none');
@@ -901,21 +719,6 @@ function resetForms() {
   rating = 0;
   document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('active'));
 }
-document.querySelectorAll('.btn-submit').forEach(b => {
-    b.disabled = false;
-    b.textContent = b.closest('#tab-contact') ? 'Send Message →' : 'Submit Feedback →';
-  });
-//function openProjectWithAd(url) {
-    // 1. Pehle Smartlink (Ad) ko naye tab mein kholo
-   // window.open('YOUR_SMARTLINK_URL', '_blank');
-
-    // 2. Phir Project URL ko bhi naye tab mein kholo
-    // '_blank' ka matlab hi hota hai "New Tab"
-  //  window.open(url, '_blank');
-//}
-
-    
-    
 </script>
 </body>
 </html>
